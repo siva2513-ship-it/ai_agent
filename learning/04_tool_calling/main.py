@@ -11,8 +11,8 @@ def read_file(path: str):
     with open(path,'r') as file:
         return file.read()
 
-def list_files():
-    return os.listdir(".")
+def list_files(path: str):
+    return os.listdir(path)
 
 response = chat(
     model = "qwen3.5:4b",
@@ -31,7 +31,7 @@ if decision.action == "read_file":
     result = read_file(decision.path)
 
 elif decision.action == "list_files":
-    result = list_files()
+    result = list_files(decision.path)
 
 final_response = chat(
     model="qwen3.5:4b",
